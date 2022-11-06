@@ -15,18 +15,19 @@
     <HBox prefHeight="26.0" prefWidth="616.0">
         <children>
             <Label prefHeight="18.0" prefWidth="80.0" text="Ваше имя" />
-            <TextField prefHeight="26.0" prefWidth="305.0" />
+            <TextField fx:id="name" prefHeight="26.0" prefWidth="226.0" />
+         <Button fx:id="setName" mnemonicParsing="false" onMouseReleased="#onSetName" prefHeight="26.0" prefWidth="93.0" text="Задать" />
         </children>
     </HBox>
     <HBox prefHeight="469.0" prefWidth="595.0">
         <children>
-            <TextArea prefHeight="470.0" prefWidth="391.0" />
+            <TextArea fx:id="log" prefHeight="470.0" prefWidth="391.0" />
         </children>
     </HBox>
     <HBox prefHeight="26.0" prefWidth="291.0">
         <children>
-            <TextField alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="309.0" />
-            <Button text="Отправить" />
+            <TextField fx:id="text" alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="309.0" />
+            <Button fx:id="sendBtn" onMouseReleased="#onSendClick" text="Отправить" />
         </children>
     </HBox>
 </VBox>
