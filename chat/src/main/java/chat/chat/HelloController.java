@@ -20,31 +20,26 @@ public class HelloController implements TCPConnectionListener {
     private ResourceBundle resources;
     @FXML
     private URL location;
-    private static final String IP_ADDR = "192.168.0.106";
+    private static final String IP_ADDR = "192.168.0.103"; //"192.168.0.106"
     private static final int  PORT = 8189;
     private TCPConnection connection;
     @FXML
     private TextArea log;
-
     @FXML
     private TextField name;
     private String nick;
-
     @FXML
     private Button sendBtn;
     @FXML
     private Button setName;
-
     @FXML
     private TextField text;
     private String history="";
-
     @FXML
     void onSendClick(MouseEvent event) {
         String msg = text.getText();
         if (msg.equals("")) return;
         text.setText(null);
-        log.appendText(msg+"\n");
         connection.sendString(nick +": "+msg);
     }
     @FXML
@@ -53,42 +48,32 @@ public class HelloController implements TCPConnectionListener {
         try {
             connection = new TCPConnection(this,IP_ADDR,PORT);
         } catch (IOException e) {
-            printMsg("Connection exception: "+e);
+            doInBackground("Connection exception: "+e);
         }
     }
     @FXML
     void initialize(){
 
     }
-
     @Override
     public void onConnectionReady(TCPConnection tcpConnection) {
-        printMsg("Connection ready...");
+        doInBackground("Connection ready...");
     }
-
     @Override
     public void onReceiveString(TCPConnection tcpConnection, String value) {
-        printMsg(value);
+        doInBackground(value);
     }
-
     @Override
     public void onDisconnect(TCPConnection tcpConnection) {
-        printMsg("Connection close");
+        doInBackground("Connection close");
     }
-
     @Override
     public void onException(TCPConnection tcpConnection, Exception e) {
-        printMsg("Connection exception: "+e);
-    }
 
-    private synchronized void printMsg(String msg){
-        new Runnable(){
-            @Override
-            public void run(){
-                log.appendText(msg +"\n");
-                //log.setText(history + msg +"\n");
-                //history+= msg;
-            }
-        };
+        doInBackground("Connection exception: "+e);
+    }
+    @Override
+    public void doInBackground(String msg) {
+        log.appendText(msg +"\n");
     }
 }

@@ -5,4 +5,7 @@ public interface TCPConnectionListener {
     void onReceiveString(TCPConnection tcpConnection, String value);
     void onDisconnect(TCPConnection tcpConnection);
     void onException(TCPConnection tcpConnection, Exception e);
+
+
+    void doInBackground(String msg);
 }

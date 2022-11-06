@@ -41,6 +41,7 @@ public class TCPConnection {
         try {
             out.write(value + "\r\n");
             out.flush();
+
         } catch (IOException e) {
             eventListener.onException(TCPConnection.this,e);
             disconnect();

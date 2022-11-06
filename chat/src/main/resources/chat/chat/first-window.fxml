@@ -21,7 +21,7 @@
     </HBox>
     <HBox prefHeight="469.0" prefWidth="595.0">
         <children>
-            <TextArea fx:id="log" prefHeight="470.0" prefWidth="391.0" />
+            <TextArea fx:id="log" disable="true" prefHeight="470.0" prefWidth="391.0" />
         </children>
     </HBox>
     <HBox prefHeight="26.0" prefWidth="291.0">
