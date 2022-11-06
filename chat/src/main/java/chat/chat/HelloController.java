@@ -20,7 +20,7 @@ public class HelloController implements TCPConnectionListener {
     private ResourceBundle resources;
     @FXML
     private URL location;
-    private static final String IP_ADDR = "192.168.0.103"; //"192.168.0.106"
+    private static final String IP_ADDR = "92.255.107.167"; //"192.168.0.106" 103
     private static final int  PORT = 8189;
     private TCPConnection connection;
     @FXML
