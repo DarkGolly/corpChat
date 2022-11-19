@@ -17,10 +17,15 @@ public class HelloController implements TCPConnectionListener {
     @FXML
     private Label welcomeText;
     @FXML
+    private TextField ipField;
+
+    @FXML
+    private Button setIp;
+    @FXML
     private ResourceBundle resources;
     @FXML
     private URL location;
-    private static final String IP_ADDR = "92.255.107.167"; //"192.168.0.106" 103
+    private String IP_ADDR = "192.255.107.167"; //"192.168.0.106" 103  "92.255.107.167"
     private static final int  PORT = 8189;
     private TCPConnection connection;
     @FXML
@@ -35,6 +40,7 @@ public class HelloController implements TCPConnectionListener {
     @FXML
     private TextField text;
     private String history="";
+
     @FXML
     void onSendClick(MouseEvent event) {
         String msg = text.getText();
@@ -51,6 +57,11 @@ public class HelloController implements TCPConnectionListener {
             doInBackground("Connection exception: "+e);
         }
     }
+    @FXML
+    void onSetIp(MouseEvent event) {
+        IP_ADDR = ipField.getText();
+    }
+
     @FXML
     void initialize(){
 
